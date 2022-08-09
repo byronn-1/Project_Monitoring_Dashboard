@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Project list renders correctly 1`] = `
+<div>
+  <div
+    class="project-list"
+  >
+    <div
+      class="scroll"
+    >
+      <div>
+        <div
+          class="list-item-container"
+        >
+          <div
+            class="project-list-item"
+          >
+            <h2
+              class="project-title"
+            >
+              Inventory Project
+            </h2>
+            <p
+              class="initial-ideas"
+            >
+              Application to keep track of projects amounts of products available and product details
+            </p>
+            <button
+              class="update-project-btn"
+            >
+              Update Project
+            </button>
+          </div>
+          <button
+            class="ViewMore-btn"
+          >
+            View More
+          </button>
+        </div>
+        <div />
+      </div>
+      <div>
+        <div
+          class="list-item-container"
+        >
+          <div
+            class="project-list-item"
+          >
+            <h2
+              class="project-title"
+            >
+              CSS React Project
+            </h2>
+            <p
+              class="initial-ideas"
+            >
+              Experimental app to test creation of new components that can handle CSS
+            </p>
+            <button
+              class="update-project-btn"
+            >
+              Update Project
+            </button>
+          </div>
+          <button
+            class="ViewMore-btn"
+          >
+            View More
+          </button>
+        </div>
+        <div />
+      </div>
+      <div>
+        <div
+          class="list-item-container"
+        >
+          <div
+            class="project-list-item"
+          >
+            <h2
+              class="project-title"
+            >
+              Meal Planning Project
+            </h2>
+            <p
+              class="initial-ideas"
+            >
+              Keep all favorite recipes in one  place
+            </p>
+            <button
+              class="update-project-btn"
+            >
+              Update Project
+            </button>
+          </div>
+          <button
+            class="ViewMore-btn"
+          >
+            View More
+          </button>
+        </div>
+        <div />
+      </div>
+      <div>
+        <div
+          class="list-item-container"
+        >
+          <div
+            class="project-list-item"
+          >
+            <h2
+              class="project-title"
+            >
+              Staffing Planner Project
+            </h2>
+            <p
+              class="initial-ideas"
+            >
+              Create a calender app for staffing rota at multiple venues
+            </p>
+            <button
+              class="update-project-btn"
+            >
+              Update Project
+            </button>
+          </div>
+          <button
+            class="ViewMore-btn"
+          >
+            View More
+          </button>
+        </div>
+        <div />
+      </div>
+      <div>
+        <div
+          class="list-item-container"
+        >
+          <div
+            class="project-list-item"
+          >
+            <h2
+              class="project-title"
+            >
+              Web3 Project
+            </h2>
+            <p
+              class="initial-ideas"
+            >
+              Create a calender app for staffing rota at multiple venues.
+            </p>
+            <button
+              class="update-project-btn"
+            >
+              Update Project
+            </button>
+          </div>
+          <button
+            class="ViewMore-btn"
+          >
+            View More
+          </button>
+        </div>
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;

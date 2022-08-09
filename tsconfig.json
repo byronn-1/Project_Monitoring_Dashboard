@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "tests_to_be_integrated"  ]
 }
