@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true,
+    "declaration": true,
+    "noEmit": true,
+    "outDir": "dist",
+    "types": ["cypress"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": ["../node_modules/cypress", "./**/*.ts", "./**/*.js"]
+}

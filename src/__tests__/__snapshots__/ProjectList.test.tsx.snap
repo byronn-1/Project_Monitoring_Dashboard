@@ -33,6 +33,7 @@ exports[`Project list renders correctly 1`] = `
           </div>
           <button
             class="ViewMore-btn"
+            value="0"
           >
             View More
           </button>
@@ -64,6 +65,7 @@ exports[`Project list renders correctly 1`] = `
           </div>
           <button
             class="ViewMore-btn"
+            value="1"
           >
             View More
           </button>
@@ -95,6 +97,7 @@ exports[`Project list renders correctly 1`] = `
           </div>
           <button
             class="ViewMore-btn"
+            value="2"
           >
             View More
           </button>
@@ -126,6 +129,7 @@ exports[`Project list renders correctly 1`] = `
           </div>
           <button
             class="ViewMore-btn"
+            value="3"
           >
             View More
           </button>
@@ -157,6 +161,39 @@ exports[`Project list renders correctly 1`] = `
           </div>
           <button
             class="ViewMore-btn"
+            value="4"
+          >
+            View More
+          </button>
+        </div>
+        <div />
+      </div>
+      <div>
+        <div
+          class="list-item-container"
+        >
+          <div
+            class="project-list-item"
+          >
+            <h2
+              class="project-title"
+            >
+              Job Application Tracker
+            </h2>
+            <p
+              class="initial-ideas"
+            >
+              App for tracking job applications the amount of and companies applied to
+            </p>
+            <button
+              class="update-project-btn"
+            >
+              Update Project
+            </button>
+          </div>
+          <button
+            class="ViewMore-btn"
+            value="5"
           >
             View More
           </button>

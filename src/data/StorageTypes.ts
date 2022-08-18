@@ -1,15 +1,20 @@
 export type ProjectTemplate = {
   projectId: number;
   name: string;
-  projectStages: ProjectStagesTemplate[];
+  projectStages: Record<string, ProjectStage>;
   projectDetails: ProjectDetailsTemplate;
-}
+};
 
-export type ProjectStagesTemplate = {
-  stage: string;
+
+export type ProjectStage = {
   complete: boolean;
-  stageShort: string | boolean ;
-}
+};
+
+export type AllStageDefinitions = Record<string, StageDefinition>;
+
+export type StageDefinition = {
+  stage: string;
+};
 
 export type ProjectDetailsTemplate = {
   initialIdeas: string;
@@ -17,6 +22,4 @@ export type ProjectDetailsTemplate = {
   niceToHaves: string;
   specificationList: string[];
   designSpecification: string[];
-}
-
-
+};

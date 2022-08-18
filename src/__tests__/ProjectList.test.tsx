@@ -48,7 +48,18 @@ describe("Project list",  () => {
         screen.getAllByText("See More Details").forEach((element) => {
             expect(element).toBeInTheDocument();
         });
+    });
+    it("update project modal visible on button click", async () => {
+        render(<ProjectList />);
 
-    
+        const updateProject = screen.getAllByText("Update Project");
+
+        await updateProject.forEach((element) => {
+            userEvent.click(element);
+        });
+
+        screen.getAllByText("Brief").forEach((element) => {
+            expect(element).toBeInTheDocument();
+        });
     });
 });
