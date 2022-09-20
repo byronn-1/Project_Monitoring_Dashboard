@@ -34,7 +34,7 @@ function App() {
       <ProjectList projectListToApp={setCurrentProjectId} />
       {currentProjectId != undefined && (
         <>
-          <div className="modal-overlay">
+          
             <div className="modal">
               <h1>{project!.name}</h1>
               <div>
@@ -42,7 +42,7 @@ function App() {
               </div>
               <button onClick={() => setCurrentProjectId(undefined)}>Save</button>
             </div>
-          </div>
+            <div className="modal-overlay" />
         </>
       )}
       <footer></footer>

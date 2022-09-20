@@ -1,29 +1,12 @@
 import { render, screen} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import App from "../App";
+
 import ProjectList from "../ProjectList";
-
-
+import { renderWithProvider } from "../testUtils";
+import { Route, Routes } from "react-router-dom";
 
 
 describe("Project list",  () => {
-    it("renders default view",  () => {
-        render(<App/>)
-        expect(screen.getByText("Projects Dashboard")).toBeDefined();
-    });
-
-    it("renders a list", () => {
-         render(<App />);
-        [
-            "Inventory Project",
-            "CSS React Project",
-            "Meal Planning Project",
-            "Staffing Planner Project",
-            "Web3 Project"
-        ].forEach((title) => {
-            expect(screen.getByText(title)).toBeDefined();
-        });
-    });
 
     it("renders correctly", () => {
         const { container } = render(<ProjectList />);
@@ -31,8 +14,9 @@ describe("Project list",  () => {
         expect(container).toMatchSnapshot();
     });
       
-    it("extra-info list is visible on click", async () => {
-        render(<ProjectList />);
+        
+    it.only("extra-info list is visible on click", async () => {
+        renderWithProvider(<ProjectList />);
 
         const viewMore = screen.getAllByText("View More")
         
@@ -62,4 +46,17 @@ describe("Project list",  () => {
             expect(element).toBeInTheDocument();
         });
     });
+
+    function renderWithRoute(projectId: string) {
+        // Add routes to get the contents of useParams populated
+        return renderWithProvider(
+          <Routes>
+            <Route path="project/:projectId" element={<ProjectList />} />
+            <Route path="*" element={<div>Unknown path</div>} />
+          </Routes>,
+          {
+            initialRoutes: ["/", `/project/${projectId}`],
+          }
+        );
+    }
 });
