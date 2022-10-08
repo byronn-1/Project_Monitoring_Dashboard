@@ -33,6 +33,7 @@ describe("Project list",  () => {
             expect(element).toBeInTheDocument();
         });
     });
+    
     it("update project modal visible on button click", async () => {
         render(<ProjectList />);
 

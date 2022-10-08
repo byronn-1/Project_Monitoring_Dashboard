@@ -2,7 +2,6 @@ import { SHORT_STAGE_NAME_LIST } from "./data/ProjectListData";
 import { useState } from "react";
 
 import { ProjectTemplate } from "./data/StorageTypes";
-import { useSelector} from 'react-redux'
 import { useAppSelector } from "./app/store";
 
 
@@ -41,9 +40,9 @@ const ProjectList = (props: ProjectListProps) => {
     }
 
     result.push(
-      <div>
+      <div key={`${project.projectId}`}>
         <div className="list-item-container">
-          <div className="project-list-item" key={`${project.projectId}`}>
+          <div className="project-list-item">
             <h2 className="project-title">{`${project.name}`}</h2>
             <p className="initial-ideas">{`${project.projectDetails.initialIdeas}`}</p>
             <button

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import ProjectList from "./ProjectList";
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { ProjectTemplate } from "./data/StorageTypes";
 import { useAppSelector } from "./app/store";
 import { SHORT_STAGE_NAME_LIST} from './data/ProjectListData';
@@ -34,11 +34,10 @@ function App() {
       <ProjectList projectListToApp={setCurrentProjectId} />
       {currentProjectId != undefined && (
         <>
-          
             <div className="modal">
               <h1>{project!.name}</h1>
               <div>
-                {SHORT_STAGE_NAME_LIST.map((shortName, index: number) =>  <div className=".stage-selection-short" key={index} onClick={() => setStageComplete(shortName)}>{shortName}</div>)}
+                {SHORT_STAGE_NAME_LIST.map((shortName) =>  <div className=".stage-selection-short" key={shortName} onClick={() => setStageComplete(shortName)}>{shortName}</div>)}
               </div>
               <button onClick={() => setCurrentProjectId(undefined)}>Save</button>
             </div>
