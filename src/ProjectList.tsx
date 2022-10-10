@@ -3,17 +3,17 @@ import { useState } from "react";
 
 import { ProjectTemplate } from "./data/StorageTypes";
 import { useAppSelector } from "./app/store";
+import { useDispatch } from 'react-redux'
+import { toggleProjectComplete } from "./app/projectsSlice";
 
 
-type ProjectListProps = {
-  projectListToApp: (id: number) => void
-}
 
-const ProjectList = (props: ProjectListProps) => {
+const ProjectList = () => {
 
   const [viewMoreArray, setViewMoreArray] = useState<boolean[]>([]);
-  const projectListData: ProjectTemplate[]  = useAppSelector(state  => state.project.projects);
+  const [currentProjectId, setCurrentProjectId] = useState<number | undefined>();
 
+  
   const changeViewMore = (id: number) => {
     if (viewMoreArray[id] === false) {
       setViewMoreArray((viewMoreArray) =>
@@ -26,11 +26,21 @@ const ProjectList = (props: ProjectListProps) => {
     }
   };
 
-  const updateProject = (id: number) => {
-    props.projectListToApp(id);
 
-    console.log(`update project for ${id}`);
-  };
+  const dispatch = useDispatch();
+  const projectListData: ProjectTemplate[]  = useAppSelector(state  => state.project.projects);
+
+  
+  const setStageComplete = (shortName: string) => {  
+    dispatch(toggleProjectComplete({projectId: currentProjectId, shortName}))
+  }
+
+  const getProject = () => {
+    return projectListData.find(project => currentProjectId === project.projectId)
+  }
+
+  const project = getProject();
+
 
   const getProjects = (project: ProjectTemplate) => {
     const result = [];
@@ -47,7 +57,7 @@ const ProjectList = (props: ProjectListProps) => {
             <p className="initial-ideas">{`${project.projectDetails.initialIdeas}`}</p>
             <button
               className="update-project-btn"
-              onClick={() => updateProject(project.projectId)}
+              onClick={() => setCurrentProjectId(project.projectId)}
             >
               Update Project
             </button>
@@ -81,7 +91,18 @@ const ProjectList = (props: ProjectListProps) => {
       <div className="scroll">
         {projectListData.map((project) => getProjects(project))}
       </div>
-      <div className="modal-overlay" />
+      {currentProjectId !== undefined && (
+        <>
+            <div className="modal">
+              <h1>{project!.name}</h1>
+              <div>
+                {SHORT_STAGE_NAME_LIST.map((shortName) =>  <div className=".stage-selection-short" key={shortName} onClick={() => setStageComplete(shortName)}>{shortName}</div>)}
+              </div>
+              <button onClick={() => setCurrentProjectId(undefined)}>Save</button>
+            </div>
+            <div className="modal-overlay" />
+        </>
+      )}
     </div>
   );
 };
