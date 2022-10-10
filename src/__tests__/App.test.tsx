@@ -8,11 +8,11 @@ import { Route, Routes } from "react-router-dom";
 
 describe("App", () => {
     it("renders default view",  () => {
-        renderWithProvider(<App />)
+        renderWithProvider(<App />);
         expect(screen.getByText("Projects Dashboard")).toBeDefined();
     });
 
-    it("renders a list", () => {
+    it("renders a list of projects", () => {
       renderWithProvider(<App />);
 
         [
@@ -25,5 +25,10 @@ describe("App", () => {
             expect(screen.getByText(shortName)).toBeDefined();
         });
     });
+    it("modal rendered when update project button clicked", () => {
+    
+    });
 
+
+        
 });

@@ -54,11 +54,10 @@ const ProjectList = (props: ProjectListProps) => {
           </div>
           <button
             className="ViewMore-btn"
+            aria-label="ViewMore-btn"
             value={`${project.projectId}`}
             onClick={() => changeViewMore(project.projectId)}
-          >
-            View More
-          </button>
+          >View More</button>
         </div>
         {!viewMoreArray[project.projectId] ? (
           <div key={`${project.projectId + project.name}`}className="more-info-card" style={{display: viewMoreArray[project.projectId] ? "none" : "flex"}}>

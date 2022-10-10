@@ -9,44 +9,28 @@ import { Route, Routes } from "react-router-dom";
 describe("Project list",  () => {
 
     it("renders correctly", () => {
-        const { container } = render(<ProjectList />);
+        const { container } = renderWithProvider(<ProjectList />);
     
         expect(container).toMatchSnapshot();
     });
       
+    it("Dropdown rendered when view more button clicked", async() => { 
+        renderWithProvider(<ProjectList />);
         
-    it.only("extra-info list is visible on click", async () => {
+        await userEvent.click(screen.getAllByText("View More")[3]);
+        expect(screen.getByText("Brief")).toBeDefined();
+
+    });
+
+    it.only("update project modal rendered on button click", async () => {
         renderWithProvider(<ProjectList />);
 
-        const viewMore = screen.getAllByText("View More")
+       await userEvent.click(screen.getAllByText("Update Project")[0]);
         
-         viewMore.forEach((button) => {
-            expect(button).toBeVisible();
-        });
-        
-        await viewMore.forEach((element) => {
-            userEvent.click(element);
-        });
-        
+        expect(screen.getByText("save")).toBeDefined();
 
-        screen.getAllByText("See More Details").forEach((element) => {
-            expect(element).toBeInTheDocument();
-        });
     });
-    
-    it("update project modal visible on button click", async () => {
-        render(<ProjectList />);
 
-        const updateProject = screen.getAllByText("Update Project");
-
-        await updateProject.forEach((element) => {
-            userEvent.click(element);
-        });
-
-        screen.getAllByText("Brief").forEach((element) => {
-            expect(element).toBeInTheDocument();
-        });
-    });
 
     function renderWithRoute(projectId: string) {
         // Add routes to get the contents of useParams populated
