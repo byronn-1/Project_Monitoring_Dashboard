@@ -22,15 +22,24 @@ describe("Project list",  () => {
 
     });
 
-    it.only("update project modal rendered on button click", async () => {
+    it("update project modal rendered on button click", async () => {
         renderWithProvider(<ProjectList />);
 
-       await userEvent.click(screen.getAllByText("Update Project")[0]);
+        await userEvent.click(screen.getAllByText("Update Project")[0]);
         
-        expect(screen.getByText("save")).toBeDefined();
+        expect(screen.getByText("Save")).toBeDefined();
 
     });
+    it("update view more dropdown icon colour on click modal click", async () => {
+      renderWithProvider(<ProjectList />);
 
+      await userEvent.click(screen.getAllByText("Update Project")[0]);
+      await userEvent.click(screen.getByText("Brief"));
+      await userEvent.click(screen.getByText("Save"));
+      await userEvent.click(screen.getAllByText("View More")[0]);
+
+      expect(screen.getByText("Brief")).toHaveStyleRule('backgroundColor', 'green');
+  });
 
     function renderWithRoute(projectId: string) {
         // Add routes to get the contents of useParams populated

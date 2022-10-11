@@ -1,18 +1,18 @@
-import { useState } from "react";
 import "./App.css";
 import ProjectList from "./ProjectList";
-import { useDispatch } from 'react-redux'
-import { ProjectTemplate } from "./data/StorageTypes";
-import { useAppSelector } from "./app/store";
-import { SHORT_STAGE_NAME_LIST} from './data/ProjectListData';
-import { toggleProjectComplete } from "./app/projectsSlice";
+import { Route, Routes } from "react-router-dom";
 
 
 function App() {
-  
 
   return (
     <div className="app">
+      <Routes>
+        <Route
+          path="project/:projectId"
+          element={<ProjectList />}
+        />
+      </Routes>
       <header className="page-header">
         <h1 className="page-title">Projects Dashboard</h1>
       </header>

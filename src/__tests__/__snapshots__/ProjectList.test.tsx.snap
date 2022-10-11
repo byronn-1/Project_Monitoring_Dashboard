@@ -32,6 +32,7 @@ exports[`Project list renders correctly 1`] = `
             </button>
           </div>
           <button
+            aria-label="ViewMore-btn"
             class="ViewMore-btn"
             value="0"
           >
@@ -64,6 +65,7 @@ exports[`Project list renders correctly 1`] = `
             </button>
           </div>
           <button
+            aria-label="ViewMore-btn"
             class="ViewMore-btn"
             value="1"
           >
@@ -96,6 +98,7 @@ exports[`Project list renders correctly 1`] = `
             </button>
           </div>
           <button
+            aria-label="ViewMore-btn"
             class="ViewMore-btn"
             value="2"
           >
@@ -128,6 +131,7 @@ exports[`Project list renders correctly 1`] = `
             </button>
           </div>
           <button
+            aria-label="ViewMore-btn"
             class="ViewMore-btn"
             value="3"
           >
@@ -160,6 +164,7 @@ exports[`Project list renders correctly 1`] = `
             </button>
           </div>
           <button
+            aria-label="ViewMore-btn"
             class="ViewMore-btn"
             value="4"
           >
@@ -192,6 +197,7 @@ exports[`Project list renders correctly 1`] = `
             </button>
           </div>
           <button
+            aria-label="ViewMore-btn"
             class="ViewMore-btn"
             value="5"
           >
