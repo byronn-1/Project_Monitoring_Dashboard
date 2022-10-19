@@ -1,6 +1,8 @@
 import { SHORT_STAGE_NAME_LIST } from "./data/ProjectListData";
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { ProjectTemplate } from "./data/StorageTypes";
 import { useAppSelector } from "./app/store";
 import { useDispatch } from 'react-redux'
@@ -12,6 +14,8 @@ const ProjectList = () => {
 
   const [viewMoreArray, setViewMoreArray] = useState<boolean[]>([]);
   const [currentProjectId, setCurrentProjectId] = useState<number | undefined>();
+  
+  const navigate = useNavigate();
 
   
   const changeViewMore = (id: number) => {
@@ -48,6 +52,10 @@ const ProjectList = () => {
     if (viewMoreArray.length <= project.projectId) {
       setViewMoreArray((viewMoreArray) => [...viewMoreArray, true]);
     }
+    const getPage = () => {
+      // event.preventDefault();
+      navigate(`${project.projectId}`);
+  }
 
     result.push(
       <div key={`${project.projectId}`}>
@@ -71,7 +79,7 @@ const ProjectList = () => {
         </div>
         {!viewMoreArray[project.projectId] ? (
           <div key={`${project.projectId + project.name}`}className="more-info-card" style={{display: viewMoreArray[project.projectId] ? "none" : "flex"}}>
-            <button>See More Details</button>
+            <button onClick={getPage} >See More Details</button>
             <div className="project-stage-card">
               {SHORT_STAGE_NAME_LIST.map((projectStage, index) =>
               <div key={index}  style={{ backgroundColor: project.projectStages[projectStage].complete ? 'green' : 'red' }} className="project-stage-box">{projectStage}</div> )}
