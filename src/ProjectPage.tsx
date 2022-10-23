@@ -22,7 +22,7 @@ const ProjectPage = () => {
 
   return (
     <>
-          <h1>Project: {project.name}</h1>
+          <h1>Project: {project!.name}</h1>
       <div>
               <h2>Brief</h2>
               <p>write up</p>
